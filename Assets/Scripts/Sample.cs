@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class Sample : MonoBehaviour {
@@ -34,7 +35,7 @@ public class Sample : MonoBehaviour {
         // var url = "https://jsonplaceholder.typicode.com/posts/" + i;
         var url = "";
 
-        var getSubscribe = NetworkHandler
+        var getSubscribe = UnirxUnityWebRequest
             .Get<SampleResponse>(url, headers, progress)
             .Subscribe(
                 res => { Debug.Log("success + " + res); },
